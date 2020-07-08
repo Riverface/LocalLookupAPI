@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 namespace LocalLookupAPI.Solution.Models
 {
-    public class Business
+    public class City
     {
         public int BusinessId { get; set; }
         public int CityId{get;set;}

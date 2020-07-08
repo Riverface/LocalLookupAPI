@@ -15,13 +15,8 @@ namespace LocalLookupAPI.Solution.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<Business>()
-              .HasData(
-
-            );
-            builder.Entity<City>()
-            .HasData(
-           );
+            builder.Entity<Business>();
+            builder.Entity<City>();
 
         }
     }
