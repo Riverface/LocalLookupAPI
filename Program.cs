@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace LocalLookupAPI.Solution
+namespace LocalLookupMVC.Solution
 {
     public class Program
     {

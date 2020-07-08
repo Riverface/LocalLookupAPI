@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
-namespace LocalLookupAPI.Solution.Models
+namespace LocalLookupMVC.Solution.Models
 {
     public class City
     {

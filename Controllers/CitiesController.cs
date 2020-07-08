@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LocalLookupAPI.Solution.Controllers
+namespace LocalLookupMVC.Solution.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

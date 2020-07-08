@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LocalLookupAPI.Solution": {
+    "LocalLookupMVC.Solution": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",
