@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Storage.Models
+namespace LocalLookupAPI.Solution.Models
 {
     public class ApplicationUser : IdentityUser
     {
