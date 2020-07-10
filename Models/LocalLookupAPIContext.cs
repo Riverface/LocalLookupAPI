@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace LocalLookupMVC.Solution.Models
+namespace LocalLookupAPI.Models
 {
-    public class LocalLookupMVCContext : IdentityDbContext<ApplicationUser>
+    public class LocalLookupAPIContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Business> Businesses { get; set; }
         public virtual DbSet<City> Cities { get; set; }
-        public LocalLookupMVCContext(DbContextOptions<LocalLookupMVCContext> options) : base(options)
+        public LocalLookupAPIContext(DbContextOptions<LocalLookupAPIContext> options) : base(options)
         {
 
         }

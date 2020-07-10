@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LocalLookupMVC.Solution.Controllers
+namespace LocalLookupAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class BusinessesController : ControllerBase
     {
         // GET api/values
         [HttpGet]

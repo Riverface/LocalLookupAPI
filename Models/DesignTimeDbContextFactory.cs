@@ -3,23 +3,23 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace LocalLookupMVC.Solution.Models
+namespace LocalLookupAPI.Models
 {
-    public class LocalLookupMVCContextFactory : IDesignTimeDbContextFactory<LocalLookupMVCContext>
+    public class LocalLookupAPIContextFactory : IDesignTimeDbContextFactory<LocalLookupAPIContext>
     {
-        LocalLookupMVCContext IDesignTimeDbContextFactory<LocalLookupMVCContext>.CreateDbContext(string[] args)
+        LocalLookupAPIContext IDesignTimeDbContextFactory<LocalLookupAPIContext>.CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
               .SetBasePath(Directory.GetCurrentDirectory())
               .AddJsonFile("appsettings.json")
               .Build();
 
-            var builder = new DbContextOptionsBuilder<LocalLookupMVCContext>();
+            var builder = new DbContextOptionsBuilder<LocalLookupAPIContext>();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             builder.UseMySql(connectionString);
 
-            return new LocalLookupMVCContext(builder.Options);
+            return new LocalLookupAPIContext(builder.Options);
         }
     }
 }

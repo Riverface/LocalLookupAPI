@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
-namespace LocalLookupMVC.Solution.Models
+namespace LocalLookupAPI.Models
 {
     public class Business
     {

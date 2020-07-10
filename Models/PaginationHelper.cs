@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LocalLookupMVC.Solution.Models
+namespace LocalLookupAPI.Models
 {
     public static class PaginationHelper
     {

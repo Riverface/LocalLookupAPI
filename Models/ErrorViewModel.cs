@@ -1,6 +1,6 @@
 using System;
 
-namespace LocalLookupMVC.Solution.Models
+namespace LocalLookupAPI.Models
 {
     public class ErrorViewModel
     {
