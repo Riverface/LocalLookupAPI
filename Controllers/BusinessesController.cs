@@ -1,8 +1,8 @@
-﻿using System;
+﻿using LocalLookupAPI.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace LocalLookupAPI.Controllers
 {
@@ -10,36 +10,63 @@ namespace LocalLookupAPI.Controllers
     [ApiController]
     public class BusinessesController : ControllerBase
     {
-        // GET api/values
+        private LocalLookupAPIContext _db;
+
+        public BusinessesController(LocalLookupAPIContext db)
+        {
+            _db = db;
+        }
+
+        // GET api/Business
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Business>> Get(string name, int id, string bio, string faction, int minLevel, int maxLevel, int minMight, int maxMight, int minSpryness, int maxSpryness, int minJudgement, int maxJudgement, int minEcho, int maxEcho, int minMagnetism, int maxMagnetism, int minFortune, int maxFortune)
         {
-            return new string[] { "value1", "value2" };
+            var query = _db.Businesses.AsQueryable();
+        
+            return query.ToList();
         }
 
-        // GET api/values/5
+        // GET api/Business/{id}
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Business> Get(int id)
         {
-            return "value";
+            return _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // POST api/Business
+        [HttpPost /*, ActionName("PostSingle") */ ]
+        public void Post([FromBody] Business Business)
         {
+            _db.Businesses.Add(Business);
+            _db.SaveChanges();
         }
 
-        // PUT api/values/5
+        // [HttpPost, ActionName("PostArray")]
+        // public void Post([FromBody] Business[] Business)
+        // {
+        //     foreach (Business Business in Business)
+        //     {
+        //         _db.Business.Add(Business);
+        //     }
+        //     _db.SaveChanges();
+        // }
+
+        //PUT api/Business/{id}
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Business Business)
         {
+            Business.BusinessId = id;
+            _db.Entry(Business).State = EntityState.Modified;
+            _db.SaveChanges();
         }
 
-        // DELETE api/values/5
+        //DELETE api/Business/{id}
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var BusinessToDelete = _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
+            _db.Businesses.Remove(BusinessToDelete);
+            _db.SaveChanges();
         }
     }
 }
