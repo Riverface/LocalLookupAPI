@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalLookupAPI.Solution.Migrations
 {
     [DbContext(typeof(LocalLookupAPIContext))]
-    [Migration("20200710212326_Ihopethisfixesaccounts")]
-    partial class Ihopethisfixesaccounts
+    [Migration("20200714171801_Seed")]
+    partial class Seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,15 +76,30 @@ namespace LocalLookupAPI.Solution.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<string>("Blurb");
+                    b.Property<string>("Blurb")
+                        .IsRequired();
 
                     b.Property<int>("CityId");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<string>("PhoneNumber");
 
                     b.HasKey("BusinessId");
 
                     b.ToTable("Businesses");
+
+                    b.HasData(
+                        new
+                        {
+                            BusinessId = 2,
+                            Address = "Nothing",
+                            Blurb = "We buy butts",
+                            CityId = 0,
+                            Name = "Nothing",
+                            PhoneNumber = "Nothing"
+                        });
                 });
 
             modelBuilder.Entity("LocalLookupAPI.Models.City", b =>
@@ -99,6 +114,14 @@ namespace LocalLookupAPI.Solution.Migrations
                     b.HasKey("CityId");
 
                     b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            CityId = 1,
+                            Name = "Nothing",
+                            ZipCode = 94829
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LocalLookupAPI.Solution.Migrations
 {
-    public partial class Ihopethisfixesaccounts : Migration
+    public partial class Seed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,10 +53,11 @@ namespace LocalLookupAPI.Solution.Migrations
                 {
                     BusinessId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: false),
                     CityId = table.Column<int>(nullable: false),
                     Address = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
-                    Blurb = table.Column<string>(nullable: true)
+                    Blurb = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -182,6 +183,16 @@ namespace LocalLookupAPI.Solution.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Businesses",
+                columns: new[] { "BusinessId", "Address", "Blurb", "CityId", "Name", "PhoneNumber" },
+                values: new object[] { 2, "Nothing", "We buy butts", 0, "Nothing", "Nothing" });
+
+            migrationBuilder.InsertData(
+                table: "Cities",
+                columns: new[] { "CityId", "Name", "ZipCode" },
+                values: new object[] { 1, "Nothing", 94829 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

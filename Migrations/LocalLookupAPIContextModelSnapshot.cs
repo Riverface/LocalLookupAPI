@@ -74,17 +74,30 @@ namespace LocalLookupAPI.Solution.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<string>("Blurb");
+                    b.Property<string>("Blurb")
+                        .IsRequired();
 
                     b.Property<int>("CityId");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<string>("PhoneNumber");
 
                     b.HasKey("BusinessId");
 
                     b.ToTable("Businesses");
+
+                    b.HasData(
+                        new
+                        {
+                            BusinessId = 2,
+                            Address = "Nothing",
+                            Blurb = "We buy butts",
+                            CityId = 0,
+                            Name = "Nothing",
+                            PhoneNumber = "Nothing"
+                        });
                 });
 
             modelBuilder.Entity("LocalLookupAPI.Models.City", b =>
@@ -99,6 +112,14 @@ namespace LocalLookupAPI.Solution.Migrations
                     b.HasKey("CityId");
 
                     b.ToTable("Cities");
+
+                    b.HasData(
+                        new
+                        {
+                            CityId = 1,
+                            Name = "Nothing",
+                            ZipCode = 94829
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

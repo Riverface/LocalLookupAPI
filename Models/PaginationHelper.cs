@@ -10,12 +10,12 @@ namespace LocalLookupAPI.Models
 {
     public static class PaginationHelper
     {
-        public static IQueryable<Object> GetPaged(IQueryable<Object> characterQuery, int page, int pageSize = 1)
+        public static IQueryable<Object> GetPaged(IQueryable<Object> genericQuery, int page, int pageSize = 1)
         {
-            int TotalCount = characterQuery.Count();
+            int TotalCount = genericQuery.Count();
             double pageCount = (int)Math.Ceiling(Convert.ToDouble(TotalCount) / pageSize);
             int Skip = (page - 1) * pageSize;
-            IQueryable<Object> Results = (page > 0) ? characterQuery.Skip((page - 1) * pageSize).Take(pageSize) : characterQuery;
+            IQueryable<Object> Results = (page > 0) ? genericQuery.Skip((page - 1) * pageSize).Take(pageSize) : genericQuery;
             return Results;
         }
     }

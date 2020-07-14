@@ -18,11 +18,11 @@ namespace LocalLookupAPI.Controllers
         }
 
         // GET api/Business
+        
         [HttpGet]
-        public ActionResult<IEnumerable<Business>> Get(string name, int id, string bio, string faction, int minLevel, int maxLevel, int minMight, int maxMight, int minSpryness, int maxSpryness, int minJudgement, int maxJudgement, int minEcho, int maxEcho, int minMagnetism, int maxMagnetism, int minFortune, int maxFortune)
+        public ActionResult<IEnumerable<Business>> Get(string name, int id)
         {
             var query = _db.Businesses.AsQueryable();
-        
             return query.ToList();
         }
 
@@ -40,16 +40,6 @@ namespace LocalLookupAPI.Controllers
             _db.Businesses.Add(Business);
             _db.SaveChanges();
         }
-
-        // [HttpPost, ActionName("PostArray")]
-        // public void Post([FromBody] Business[] Business)
-        // {
-        //     foreach (Business Business in Business)
-        //     {
-        //         _db.Business.Add(Business);
-        //     }
-        //     _db.SaveChanges();
-        // }
 
         //PUT api/Business/{id}
         [HttpPut("{id}")]
