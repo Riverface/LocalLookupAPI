@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalLookupAPI.Migrations
 {
     [DbContext(typeof(LocalLookupAPIContext))]
-    [Migration("20200714173508_What")]
-    partial class What
+    [Migration("20200715165924_Virtual")]
+    partial class Virtual
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,7 +96,7 @@ namespace LocalLookupAPI.Migrations
                             BusinessId = 2,
                             Address = "Nothing",
                             Blurb = "We buy butts",
-                            CityId = 0,
+                            CityId = 1,
                             Name = "Nothing",
                             PhoneNumber = "Nothing"
                         });

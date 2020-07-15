@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LocalLookupAPI.Solution.Migrations
+namespace LocalLookupAPI.Migrations
 {
     [DbContext(typeof(LocalLookupAPIContext))]
     partial class LocalLookupAPIContextModelSnapshot : ModelSnapshot
@@ -94,7 +94,7 @@ namespace LocalLookupAPI.Solution.Migrations
                             BusinessId = 2,
                             Address = "Nothing",
                             Blurb = "We buy butts",
-                            CityId = 0,
+                            CityId = 1,
                             Name = "Nothing",
                             PhoneNumber = "Nothing"
                         });

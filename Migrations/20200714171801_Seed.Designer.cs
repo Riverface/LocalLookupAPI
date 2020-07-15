@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LocalLookupAPI.Solution.Migrations
+namespace LocalLookupAPI.Migrations
 {
     [DbContext(typeof(LocalLookupAPIContext))]
     [Migration("20200714171801_Seed")]
