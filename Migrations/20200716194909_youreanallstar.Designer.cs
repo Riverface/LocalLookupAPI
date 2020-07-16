@@ -3,14 +3,16 @@ using System;
 using LocalLookupAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocalLookupAPI.Migrations
 {
     [DbContext(typeof(LocalLookupAPIContext))]
-    partial class LocalLookupAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20200716194909_youreanallstar")]
+    partial class youreanallstar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

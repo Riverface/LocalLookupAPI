@@ -16,21 +16,35 @@ namespace LocalLookupAPI.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            for (int i = 30; i < 200; i+=2)
+            {   
             builder.Entity<Business>()
                 .HasData(
                     new Business
                     {
-                        BusinessId = 2,
-                            Name = "Nothing",
-                            CityId = 1,
-                            Blurb = "We buy butts",
-                            PhoneNumber = "Nothing",
-                            Address = "Nothing"
+                        BusinessId = i,
+                        Name = "aNd tHey dOnT sToP cOMiNg",
+                        CityId = i,
+                        Blurb = "All that glitters is gold",
+                        PhoneNumber = "Nothing",
+                        Address = "Nothing"
+                    },
+                    new Business
+                    {
+                        BusinessId = i+1,
+                        Name = "AnD ThEY DoNt StOp ComInG",
+                        CityId = i+1,
+                        Blurb = "Only shooting stars break the mold",
+                        PhoneNumber = "Nothing",
+                        Address = "Nothing"
                     }
                 );
-            builder.Entity<City>()
-                .HasData(new City { CityId = 1, Name = "Nothing", ZipCode = 94829 });
-
+            }
+            for (int i = 30; i < 200; i++)
+            {   
+                builder.Entity<City>()
+                    .HasData(new City { CityId = i, Name = "It's a cool place", ZipCode = 94829 });
+            }
+            }
         }
     }
-}
