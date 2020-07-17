@@ -41,16 +41,6 @@ namespace LocalLookupAPI.Controllers
             _db.SaveChanges();
         }
 
-        // [HttpPost, ActionName("PostArray")]
-        // public void Post([FromBody] City[] City)
-        // {
-        //     foreach (City City in City)
-        //     {
-        //         _db.City.Add(City);
-        //     }
-        //     _db.SaveChanges();
-        // }
-
         //PUT api/City/{id}
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] City City)

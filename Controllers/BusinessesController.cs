@@ -18,7 +18,7 @@ namespace LocalLookupAPI.Controllers
         }
 
         // GET api/Business
-        
+
         [HttpGet]
         public ActionResult<IEnumerable<Business>> Get(string name, int id)
         {
@@ -35,18 +35,18 @@ namespace LocalLookupAPI.Controllers
 
         // POST api/Business
         [HttpPost /*, ActionName("PostSingle") */ ]
-        public void Post([FromBody] Business Business)
+        public void Post([FromBody] Business business)
         {
-            _db.Businesses.Add(Business);
+            _db.Businesses.Add(business);
             _db.SaveChanges();
         }
 
         //PUT api/Business/{id}
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Business Business)
+        public void Put(int id, [FromBody] Business business)
         {
-            Business.BusinessId = id;
-            _db.Entry(Business).State = EntityState.Modified;
+            business.BusinessId = id;
+            _db.Entry(business).State = EntityState.Modified;
             _db.SaveChanges();
         }
 
@@ -54,7 +54,7 @@ namespace LocalLookupAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var BusinessToDelete = _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
+            Business BusinessToDelete = _db.Businesses.FirstOrDefault(entry => entry.BusinessId == id);
             _db.Businesses.Remove(BusinessToDelete);
             _db.SaveChanges();
         }
