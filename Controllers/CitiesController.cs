@@ -19,10 +19,10 @@ namespace LocalLookupAPI.Controllers
 
         // GET api/City
         [HttpGet]
-        public ActionResult<IEnumerable<City>> Get(string name, int id, string bio, string faction, int minLevel, int maxLevel, int minMight, int maxMight, int minSpryness, int maxSpryness, int minJudgement, int maxJudgement, int minEcho, int maxEcho, int minMagnetism, int maxMagnetism, int minFortune, int maxFortune)
+        public ActionResult<IEnumerable<City>> Get(string name, int id)
         {
             var query = _db.Cities.AsQueryable();
-        
+            
             return query.ToList();
         }
 
@@ -34,7 +34,7 @@ namespace LocalLookupAPI.Controllers
         }
 
         // POST api/City
-        [HttpPost /*, ActionName("PostSingle") */ ]
+        [HttpPost]
         public void Post([FromBody] City City)
         {
             _db.Cities.Add(City);
