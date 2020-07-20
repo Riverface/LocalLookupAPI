@@ -20,9 +20,12 @@ namespace LocalLookupAPI.Controllers
         // GET api/Business
 
         [HttpGet]
-        public ActionResult<IEnumerable<Business>> Get(string name, int id)
+        public ActionResult<IEnumerable<Business>> Get(string name, int businessId, string phoneNumber, string cityId)
         {
             var query = _db.Businesses.AsQueryable();
+            if (name != null) query = query.Where(entry => entry.Name == name);
+            if (cityId != null) query = query.Where(entry => entry.Name == cityId);
+            if (businessId > 0) query = query.Where(entry => entry.BusinessId == businessId);
             return query.ToList();
         }
 

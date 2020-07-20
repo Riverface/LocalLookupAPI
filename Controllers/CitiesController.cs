@@ -19,10 +19,12 @@ namespace LocalLookupAPI.Controllers
 
         // GET api/City
         [HttpGet]
-        public ActionResult<IEnumerable<City>> Get(string name, int id)
+        public ActionResult<IEnumerable<City>> Get(string name, int cityId, int ZipCode)
         {
             var query = _db.Cities.AsQueryable();
-            
+            if (name != null) query = query.Where(entry => entry.Name == name);
+            if (cityId > 0) query = query.Where(entry => entry.CityId == cityId);
+            if (name != null) query = query.Where(entry => entry.ZipCode == ZipCode);
             return query.ToList();
         }
 
